@@ -1,0 +1,33 @@
+body {
+  background-color: #004c56;
+  color:azure;
+}
+
+.gif-container {
+  background-image: url("./media/thor.gif");
+  background-position: center;
+  background-size: cover;
+  height: 300px;
+  width: 480px;
+  align-self: center;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+nav ul {
+  background-color: #222830;
+  font-weight: bolder;
+}
+nav ul a {
+  color: #f4841a !important;
+}
+nav ul a.active{
+    color:#ecbd8b!important;
+}
+nav ul a:hover {
+  color: #b0b5b5 !important;
+}

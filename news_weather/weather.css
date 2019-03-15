@@ -1,0 +1,16 @@
+nav ul {
+  background-color: #222830;
+  font-weight: bolder;
+}
+/* nav ul:hover {
+  background-color: slateblue;
+} */
+nav ul a {
+  color: #f4841a !important;
+}
+nav ul a:hover {
+  color: #b0b5b5 !important;
+}
+nav ul a.active{
+    color:#ecbd8b!important;
+}
