@@ -1,16 +1,39 @@
+body {
+  background-color: #004c56;
+  color: azure;
+  padding-bottom: 10px;
+}
+
 nav ul {
   background-color: #222830;
   font-weight: bolder;
 }
-/* nav ul:hover {
-  background-color: slateblue;
-} */
 nav ul a {
   color: #f4841a !important;
 }
 nav ul a:hover {
   color: #b0b5b5 !important;
 }
-nav ul a.active{
-    color:#ecbd8b!important;
+nav ul a.active {
+  color: #ecbd8b !important;
+}
+
+.sport-item {
+  background-color: #f4841a ;
+  margin: 20px 30px 15px 30px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.sport-content-notvisible{
+  display: none;
+}
+.sport-content-visible{
+  display: block;
+}
+
+.spinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
 }

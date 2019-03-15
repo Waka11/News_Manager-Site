@@ -17,6 +17,11 @@ body {
   flex-wrap: wrap;
   margin-top: 20px;
 }
+.welcome{
+  width: 40%;
+  height: fit-content;
+  cursor: none;
+}
 
 nav ul {
   background-color: #222830;

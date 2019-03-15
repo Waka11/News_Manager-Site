@@ -1,3 +1,6 @@
+let NewsArr = [];
+let DataCount = null;
+
 fetch(
   "https://newsapi.org/v2/top-headlines?sources=bbc-sport&apiKey=b235b608bf1149f5af92f46975273b78"
 )
@@ -8,12 +11,61 @@ fetch(
       );
       return;
     }
-
-    // Examine the text in the response
     response.json().then(function(data) {
-        console.log("NEWS",data);
+      console.log("NEWS", data);
+      NewsArr = data;
+      console.log("NEWSARR", NewsArr);
     });
   })
   .catch(function(err) {
     console.log("Fetch Error :-S", err);
   });
+
+function LoadSportNews() {
+  DataCount = NewsArr.articles.length;
+  for (let i = 0; i < DataCount; i++) {
+    const div = document.createElement("div");
+    div.className = "list-group-item sport-item";
+    let title = NewsArr.articles[i].title;
+    let content = NewsArr.articles[i].content;
+    const contentContainer =
+      '<p class="sport-content-notvisible" id="i`i`">' + content + "</p>";
+    if (content == null) {
+      content = "";
+    }
+    div.innerHTML = "<b>" + title + "</b>" + "<br />" + contentContainer;
+    div.setAttribute('title','Click, to open/close');
+    document.body.appendChild(div);
+    console.log("CIRCLE", [i]);
+    div.addEventListener("click",function(){
+      if (div.querySelector("p").classList.contains("sport-content-notvisible")) 
+      {
+        div.querySelector("p").classList.remove("sport-content-notvisible");
+        div.querySelector("p").classList.add("sport-content-visible");
+      }
+      else {
+        div.querySelector("p").classList.remove("sport-content-visible");
+        div.querySelector("p").classList.add("sport-content-notvisible");
+      }
+    })    
+  }
+}
+
+if(DataCount == undefined || DataCount == null){
+  const spinner = document.createElement('div');
+  spinner.setAttribute('class','spinner');
+  spinner.innerHTML = '<div class="spinner-grow" style="width: 150px; height: 150px;" role="status">'+
+    '<span class="sr-only">Loading...</span>'+
+  '</div>';
+  document.body.appendChild(spinner);
+  function delSpinner(){
+    LoadSportNews();
+    spinner.remove();
+  }
+  setTimeout(delSpinner, 1500);
+}
+else{
+  document.body.removeChild(spinner);
+}
+
+
