@@ -27,13 +27,22 @@ function LoadSportNews() {
   DataCount = NewsArr.articles.length;
   for (let i = 0; i < DataCount; i++) {
     const div = document.createElement("div");
-    div.className = "list-group-item sport-item";
+    div.className = "list-group-item news-item";
+
     let title = NewsArr.articles[i].title;
     let content = NewsArr.articles[i].content;
     let urlImage = NewsArr.articles[i].urlToImage;
-    let sportImage = "<img src="+urlImage+" alt="+title+">";
+    let newsDate = NewsArr.articles[i].publishedAt;
+
+    let year = newsDate.slice(0, 4);
+    let month = newsDate.slice(5, 7);
+    let day = newsDate.slice(8, 10);
+    let time = newsDate.slice(11, 19);
+
+    let newsImage = "<img src="+urlImage+" alt="+title+">";
     const contentContainer =
-      '<span class="sport-content-notvisible"><p class="content" id="i`i`">' + content + "</p>" + sportImage +"</span>";
+      '<span class="news-content-notvisible"><span class="content-date"><p class="content" id="i`i`">' + content + "</p><span class='date'><div>" + "Date: " + day + "." + month + "." + year + "</div>" + "<div>" + "Time: " + time + "</div></span></span>" + newsImage + "</span>";
+      
     if (content == null) {
       content = "";
     }
@@ -41,16 +50,16 @@ function LoadSportNews() {
     div.setAttribute('title','Click, to open/close');
     document.body.appendChild(div);
     console.log("CIRCLE", [i]);
+
     div.addEventListener("click",function(){
-      if (div.querySelector("span").classList.contains("sport-content-notvisible")) 
+      if (div.querySelector("span").classList.contains("news-content-notvisible")) 
       {
-        div.querySelector("span").classList.remove("sport-content-notvisible");
-        div.querySelector("span").classList.add("sport-content-visible");
-        console.log(div.querySelector("img").height);
+        div.querySelector("span").classList.remove("news-content-notvisible");
+        div.querySelector("span").classList.add("news-content-visible");
       }
       else {
-        div.querySelector("span").classList.remove("sport-content-visible");
-        div.querySelector("span").classList.add("sport-content-notvisible");
+        div.querySelector("span").classList.remove("news-content-visible");
+        div.querySelector("span").classList.add("news-content-notvisible");
       }
     }) 
   }

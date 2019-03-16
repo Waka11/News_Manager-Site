@@ -18,30 +18,41 @@ nav ul a.active {
   color: #ecbd8b !important;
 }
 
-.sport-item {
+.news-item {
   background-color: #f4841a ;
   margin: 20px 30px 15px 30px;
   border-radius: 15px;
   cursor: pointer;
 }
-.sport-content-notvisible{
+.news-content-notvisible{
   display: none;
 }
-.sport-content-visible{
+.news-content-visible{
   display: flex;
   justify-content: space-around;
 }
-.content{
+.content {
   background-color: #222830;
   margin: 10px;
   padding: 10px;
   border-radius: 15px;
   height: fit-content;
+  color: azure;
 }
-img{
+.content-date{
+  display: flex;
+  flex-direction: column;
+}
+.date{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 15%;
+}
+img {
   border-radius: 15px;
-  width:625px;
-  height:355px;
+  width: 530px;
+  height: 305px;
 }
 .title{
   font-weight: bolder;
