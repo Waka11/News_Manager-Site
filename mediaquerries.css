@@ -1,0 +1,13 @@
+@media screen and (max-width: 420px) {
+  ul {
+    flex-direction: column;
+  }
+  ul li {
+    display: flex;
+    justify-content: center;
+  }
+  .welcome{
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}

@@ -21,6 +21,8 @@ fetch(
     console.log("Fetch Error :-S", err);
   });
 
+
+  
 function LoadSportNews() {
   DataCount = NewsArr.articles.length;
   for (let i = 0; i < DataCount; i++) {
@@ -28,26 +30,29 @@ function LoadSportNews() {
     div.className = "list-group-item sport-item";
     let title = NewsArr.articles[i].title;
     let content = NewsArr.articles[i].content;
+    let urlImage = NewsArr.articles[i].urlToImage;
+    let sportImage = "<img src="+urlImage+" alt="+title+">";
     const contentContainer =
-      '<p class="sport-content-notvisible" id="i`i`">' + content + "</p>";
+      '<span class="sport-content-notvisible"><p class="content" id="i`i`">' + content + "</p>" + sportImage +"</span>";
     if (content == null) {
       content = "";
     }
-    div.innerHTML = "<b>" + title + "</b>" + "<br />" + contentContainer;
+    div.innerHTML = "<p class='title'>" + title + "</p>" + contentContainer;
     div.setAttribute('title','Click, to open/close');
     document.body.appendChild(div);
     console.log("CIRCLE", [i]);
     div.addEventListener("click",function(){
-      if (div.querySelector("p").classList.contains("sport-content-notvisible")) 
+      if (div.querySelector("span").classList.contains("sport-content-notvisible")) 
       {
-        div.querySelector("p").classList.remove("sport-content-notvisible");
-        div.querySelector("p").classList.add("sport-content-visible");
+        div.querySelector("span").classList.remove("sport-content-notvisible");
+        div.querySelector("span").classList.add("sport-content-visible");
+        console.log(div.querySelector("img").height);
       }
       else {
-        div.querySelector("p").classList.remove("sport-content-visible");
-        div.querySelector("p").classList.add("sport-content-notvisible");
+        div.querySelector("span").classList.remove("sport-content-visible");
+        div.querySelector("span").classList.add("sport-content-notvisible");
       }
-    })    
+    }) 
   }
 }
 
@@ -67,5 +72,3 @@ if(DataCount == undefined || DataCount == null){
 else{
   document.body.removeChild(spinner);
 }
-
-

@@ -28,7 +28,23 @@ nav ul a.active {
   display: none;
 }
 .sport-content-visible{
-  display: block;
+  display: flex;
+  justify-content: space-around;
+}
+.content{
+  background-color: #222830;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  height: fit-content;
+}
+img{
+  border-radius: 15px;
+  width:625px;
+  height:355px;
+}
+.title{
+  font-weight: bolder;
 }
 
 .spinner{

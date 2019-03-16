@@ -8,8 +8,8 @@ nav ul {
 nav ul a {
   color: #f4841a !important;
 }
-nav ul a.active{
-    color:#ecbd8b!important;
+nav ul a.active {
+  color: #ecbd8b !important;
 }
 nav ul a:hover {
   color: #b0b5b5 !important;
