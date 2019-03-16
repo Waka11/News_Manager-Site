@@ -12,7 +12,6 @@ fetch(
       return;
     }
 
-    // Examine the text in the response
     response.json().then(function(data) {
       console.log("NEWS",data);
       NewsArr = data;
@@ -23,7 +22,7 @@ fetch(
     console.log("Fetch Error :-S", err);
   });
 
-function LoadSportNews() {
+function LoadNews() {
   DataCount = NewsArr.articles.length;
   for (let i = 0; i < DataCount; i++) {
     const div = document.createElement("div");
@@ -73,7 +72,7 @@ if (DataCount == undefined || DataCount == null) {
     '</div>';
   document.body.appendChild(spinner);
   function delSpinner() {
-    LoadSportNews();
+    LoadNews();
     spinner.remove();
   }
   setTimeout(delSpinner, 1500);

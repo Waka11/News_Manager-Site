@@ -23,7 +23,7 @@ fetch(
 
 
   
-function LoadSportNews() {
+function LoadNews() {
   DataCount = NewsArr.articles.length;
   for (let i = 0; i < DataCount; i++) {
     const div = document.createElement("div");
@@ -73,7 +73,7 @@ if(DataCount == undefined || DataCount == null){
   '</div>';
   document.body.appendChild(spinner);
   function delSpinner(){
-    LoadSportNews();
+    LoadNews();
     spinner.remove();
   }
   setTimeout(delSpinner, 1500);

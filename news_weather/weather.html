@@ -11,6 +11,8 @@
     <link name="css" rel="stylesheet" href="./weather.css" />
     <link name="css" rel="stylesheet" href="../mediaquerries.css" />
     <link type="image/gif" rel="icon" href="../media/icon.png" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <title>Weather Forecast</title>
   </head>
 
@@ -33,7 +35,11 @@
         </li>
       </ul>
     </nav>
-    WEATHER
+    <div class="forecast">
+      <input type="text" class="form-control" id="cityName" />
+      <button class="btn btn-primary" id="cityFind">Find</button>
+    </div>
+    <div class="forecastCard"></div>
   </body>
 
   <script src="./weather.js"></script>
