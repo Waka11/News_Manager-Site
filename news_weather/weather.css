@@ -8,9 +8,6 @@ nav ul {
   background-color: #222830;
   font-weight: bolder;
 }
-/* nav ul:hover {
-  background-color: slateblue;
-} */
 nav ul a {
   color: #f4841a !important;
 }
@@ -22,12 +19,17 @@ nav ul a.active {
 }
 
 .form-control {
+  width: 75%;
+  margin-bottom: 20px;
+}
+.btn{
   width: 50%;
 }
 .forecast {
   margin: 20px;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
 }
 
 .forecastCard {
@@ -39,13 +41,43 @@ nav ul a.active {
   margin: 20px;
   margin-top: 0;
 }
-.forecastItem{
+.forecastItem {
   margin: 10px;
 }
-.list-group-item{
-    background-color: #222830;
-height: 80px;
-border:2px dashed #f4841a;
+.list-group-item {
+  background-color: #222830;
+  height: 80px;
+  border: 2px dashed #f4841a;
+}
+
+.bigForecastCard {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.localWeatherCard {
+  background-color: #f4841a;
+  padding: 20px;
+  border-radius: 0 15px 15px 0;
+  margin-left: -20px;
+}
+.localWeatherCard .list-group-item {
+  background-color: #222830;
+  height: 80px;
+  border: 2px dashed #ecbd8b;
+}
+.innerlocalWeatherCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.localWeatherCard:hover {
+  cursor: pointer;
+}
+.innerlocalWeatherCard p {
+  font-weight: bolder;
+  align-self: center;
 }
 
 .spinner {

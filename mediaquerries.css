@@ -6,23 +6,40 @@
     display: flex;
     justify-content: center;
   }
-  .welcome{
+  .welcome {
     width: 100%;
     margin-bottom: 15px;
   }
 }
 
 @media screen and (max-width: 890px) {
-  .news-content-visible{
+  .news-content-visible {
     flex-wrap: wrap;
   }
-  .news-content-visible img{
+  .news-content-visible img {
     zoom: 0.7;
   }
 }
 
 @media screen and (max-width: 470px) {
-    .news-content-visible img{
+  .news-content-visible img {
     zoom: 0.4;
+  }
+}
+@media screen and (max-width: 700px) {
+  .bigForecastCard {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .localWeatherCardContainer{
+    margin-left: 25%;
+    margin-right: 25%;
+    }
+  .localWeatherCard{
+    border-radius: 15px;
+    margin-left: 0;
+  }
+  .forecastCard{
+    margin-top: 20px;
   }
 }

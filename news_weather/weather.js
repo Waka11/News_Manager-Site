@@ -38,7 +38,6 @@ function Forecast(CityName) {
         div.innerHTML =
           '<ul class="list-group">' +
         '<li class="list-group-item">City: ' + City_Name + '</li><li class="list-group-item">Country: ' + Country + '</li><li class="list-group-item">Weather: ' + Weather + '<img src=' + WeatherIcon + ' alt=' + Weather + '>' + '</li><li class="list-group-item">Temperature: ' + Temperature +'&deg;C</li><li class="list-group-item">Wind: '+WindSpeed+'m/s</li>' + '</ul>';
-        // document.body.appendChild(div);
         $('.forecastCard').append(div);
       });
     })
@@ -47,6 +46,67 @@ function Forecast(CityName) {
       console.log("Fetch Error :-S", err);
     });
 }
+
+
+let localForecastArr = [];
+let localCity_Name = null;
+let localCountry = null;
+let localWeather = null;
+let localIconId = null;
+let localWeatherIcon = null;
+let localTemperature = null;
+
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    console.log("Geolocation is not supported by this browser.");
+  }
+}
+
+function showPosition(position) {
+  console.log("Latitude: ", Math.round(position.coords.latitude * 100) / 100, "Longitude: ", Math.round(position.coords.longitude * 100) / 100);
+
+  let latitude = Math.round(position.coords.latitude * 100) / 100;
+  let longitude = Math.round(position.coords.longitude * 100) / 100;
+
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=aa72480049dc531be9c1bd6fc4d3d1f5`
+  )
+    .then(function(response) {
+      if (response.status !== 200) {
+        console.log(
+          "Looks like there was a problem. Status Code: " + response.status
+        );
+        return;
+      }
+
+      response.json().then(function(data) {
+        console.log(data);
+
+        localForecastArr = data;
+        localCity_Name = localForecastArr.name;
+        localCountry = localForecastArr.sys.country;
+        localWeather = localForecastArr.weather[0].description;
+        localIconId = localForecastArr.weather[0].icon;
+        localWeatherIcon = `http://openweathermap.org/img/w/${localIconId}.png`;
+        localTemperature = Math.floor(localForecastArr.main.temp - 273);
+        localWindSpeed = localForecastArr.wind.speed;
+
+        const localdiv = document.createElement("div");
+        localdiv.className = "localWeatherCard";
+        localdiv.innerHTML = '<div class="innerlocalWeatherCard"><p>Weather in Your region</p><ul class="list-group">' +
+          '<li class="list-group-item">City: ' + localCity_Name + '</li><li class="list-group-item">Country: ' + localCountry + '</li><li class="list-group-item">Weather: ' + localWeather + '<img src=' + localWeatherIcon + ' alt=' + localWeather + '>' + '</li><li class="list-group-item">Temperature: ' + localTemperature + '&deg;C</li><li class="list-group-item">Wind: ' + localWindSpeed + 'm/s</li>' + '</ul></div>';
+        $(".localWeatherCardContainer").append(localdiv);
+      });
+    })
+    .catch(function(err) {
+      console.log("Fetch Error :-S", err);
+    });
+}
+
+getLocation();
 
 FindButton.addEventListener("click", () => {
   let FindInput = document.getElementById("cityName").value;
@@ -66,3 +126,4 @@ FindButton.addEventListener("click", () => {
 
   console.log("FindInput", FindInput);
 });
+
