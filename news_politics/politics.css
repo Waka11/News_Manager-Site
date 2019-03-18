@@ -53,6 +53,8 @@ img {
   border-radius: 15px;
   width: 530px;
   height: 305px;
+  margin: 10px;
+
 }
 .title {
   font-weight: bolder;
