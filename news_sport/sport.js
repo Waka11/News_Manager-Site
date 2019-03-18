@@ -39,7 +39,7 @@ function LoadNews() {
     let day = newsDate.slice(8, 10);
     let time = newsDate.slice(11, 19);
 
-    let newsImage = "<img src="+urlImage+" alt="+title+">";
+    let newsImage = "<img src="+urlImage+" alt="+title+" class='img'>";
     const contentContainer =
       '<span class="news-content-notvisible"><span class="content-date"><p class="content" id="i`i`">' + content + "</p><span class='date'><div>" + "Date: " + day + "." + month + "." + year + "</div>" + "<div>" + "Time: " + time + "</div></span></span>" + newsImage + "</span>";
       

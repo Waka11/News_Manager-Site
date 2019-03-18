@@ -7,15 +7,25 @@ body {
 nav ul {
   background-color: #222830;
   font-weight: bolder;
+  justify-content: space-between;
+}
+nav ul span{
+  display: flex;
+  align-items: center;
+  font-size: 17px;
 }
 nav ul a {
   color: #f4841a !important;
 }
+nav ul a.active {
+  color: #ecbd8b !important;
+}
 nav ul a:hover {
   color: #b0b5b5 !important;
 }
-nav ul a.active {
-  color: #ecbd8b !important;
+.greenfoot{
+  margin: 10px;
+  margin-left: 20px;
 }
 
 .form-control {

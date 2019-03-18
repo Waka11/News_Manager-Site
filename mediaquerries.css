@@ -1,10 +1,16 @@
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 440px) {
   ul {
     flex-direction: column;
   }
   ul li {
     display: flex;
     justify-content: center;
+  }
+  nav ul span {
+    flex-direction: column;
+  }
+  .greenfoot {
+    display: none !important;
   }
   .welcome {
     width: 100%;
@@ -31,15 +37,15 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-  .localWeatherCardContainer{
+  .localWeatherCardContainer {
     margin-left: 25%;
     margin-right: 25%;
-    }
-  .localWeatherCard{
+  }
+  .localWeatherCard {
     border-radius: 15px;
     margin-left: 0;
   }
-  .forecastCard{
+  .forecastCard {
     margin-top: 20px;
   }
 }
